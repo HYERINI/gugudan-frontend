@@ -59,8 +59,8 @@ export function Feedback({ isOpen, onClose, onSubmit, feedbackScore }: FeedbackP
           </div>
 
           <textarea
-            className={`w-full p-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-pink-300 focus:ring-2 focus:ring-pink-50 transition-all resize-none h-24 ${
-              reason !== "ETC" && "hidden"
+            className={`w-full p-3 border border-gray-200 rounded-xl text-sm text-gray-900 outline-none focus:border-pink-300 focus:ring-2 focus:ring-pink-50 transition-all resize-none h-24 ${
+            reason !== "ETC" && "hidden"
             }`}
             placeholder="상세한 의견을 남겨주세요."
             value={comment}
