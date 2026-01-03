@@ -68,19 +68,19 @@ export default function MbtiSection() {
         {/* header */}
         <div className="text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">
-            ✨ MBTI 맞춤 상담
+            ✨ MBTI로 살펴보는 관계 이야기
           </div>
 
           {/* ✅ 타이틀 문구 교체(원하면 다시 바꿔도 됨) */}
           <h2 className="mt-5 text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-300 font-bold">
-            MBTI로 보는 <br className="hidden md:block" />
-            연애·결혼·썸 스타일 한 번에
+            지금 마음에 맞는 관계 이야기를<br className="hidden md:block" />
+            MBTI로 천천히 살펴볼 수 있어요
           </h2>
 
           <p className="mt-4 text-sm md:text-base text-gray-600 leading-relaxed break-keep dark:text-gray-400 leading-relaxed">
-            각 MBTI 유형별 특성을 고려한 맞춤형 연애·결혼·썸 조언을 제공합니다.
+            각 MBTI 성향을 참고해,
             <br className="hidden md:block" />
-            원하는 관계 상황에 맞게 빠르게 확인해보세요.
+            지금 마음에 가까운 관계를 천천히 살펴봐요.
           </p>
         </div>
 
@@ -196,7 +196,7 @@ export default function MbtiSection() {
           </div>
 
           <div className="mt-6 text-center text-xs text-gray-500">
-            💡 각 MBTI 카드를 클릭하면 해당 유형의 <b>연애(기본)</b> 페이지로 이동합니다
+            💡 각 MBTI를 눌러, 지금 마음에 가까운 관계 이야기를 읽어보세요
           </div>
         </div>
       </div>

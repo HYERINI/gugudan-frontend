@@ -15,12 +15,12 @@ export default function HomeSpecialReasonSection({
       {/* 섹션 헤더 */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <h3 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-200 font-bold">
-          구구단이 특별한 이유
+          이야기를 꺼내도 괜찮은 이유
         </h3>
         <p className="mt-3 text-sm md:text-base text-gray-600 break-keep dark:text-gray-400 leading-relaxed">
-          AI 기술과 공감 중심 대화로
+          공감 중심의 대화로
           <br className="hidden md:block" />
-          언제 어디서나 편안한 상담을 받을 수 있습니다
+          언제 어디서나 편안하게 마음을 꺼낼 수 있어요
         </p>
       </div>
 
@@ -29,20 +29,20 @@ export default function HomeSpecialReasonSection({
         <FeatureCard
           icon="🔒"
           iconBg="bg-purple-100"
-          title="완벽한 비밀 보장"
-          desc="대화 내용은 암호화되어 안전하게 보호돼요"
+          title="당신의 이야기는 밖으로 나가지 않아요"
+          desc="이곳에서 나눈 이야기는 안전하게 보호돼요."
         />
         <FeatureCard
           icon="💬"
           iconBg="bg-pink-100"
-          title="즉각적인 응답"
-          desc="기다릴 필요 없이 바로 대화를 시작해요"
+          title="기다리게 하지 않아요"
+          desc="말이 떠오를 때, 바로 이어서 적을 수 있어요."
         />
         <FeatureCard
           icon="💜"
           iconBg="bg-indigo-100"
-          title="따뜻한 공감"
-          desc="판단하지 않고 당신의 이야기를 경청해요"
+          title="판단하지 않아요"
+          desc="맞고 틀림보다, 지금의 감정을 먼저 존중해요."
         />
       </div>
 
@@ -54,33 +54,34 @@ export default function HomeSpecialReasonSection({
             <div>
               <p className="text-sm text-gray-500 mb-2">24시간 언제든지</p>
               <h4 className="text-lg md:text-xl font-semibold text-gray-900 break-keep">
-                당신의 이야기를 들어요
+                이야기를 천천히 꺼내도 괜찮아요
               </h4>
 
-              <p className="mt-4 text-sm md:text-base text-gray-600 leading-relaxed break-keep">
-                혼자 고민하는 시간을 줄이고, 전문적인 AI 상담사와 함께
-                당신의 고민을 해결해보세요. 결혼, 연애, 썸까지 모든 관계의 고민을
-                함께 나눌 수 있습니다.
-              </p>
+              <div className="mt-4 text-sm md:text-base text-gray-600 leading-relaxed break-keep">
+                <p>
+                  혼자서 감당하기 버거운 마음을<br />
+                  꼭 해결하려고 애쓰지 않아도 괜찮아요.
+                </p>
+              </div>
 
               <ul className="mt-6 space-y-3 text-sm md:text-base text-gray-700">
                 <li className="flex items-center gap-3">
                   <span className="inline-flex w-8 h-8 rounded-full bg-purple-100 items-center justify-center">
                     ✓
                   </span>
-                  <span className="break-keep">실시간 AI 상담으로 즉각적인 답변</span>
+                  <span className="break-keep">지금 느끼는 감정을 있는 그대로 남길 수 있어요</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="inline-flex w-8 h-8 rounded-full bg-purple-100 items-center justify-center">
                     ✓
                   </span>
-                  <span className="break-keep">MBTI 기반 맞춤형 조언 제공</span>
+                  <span className="break-keep">서두르지 않고, 이어서 기록할 수 있어요</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="inline-flex w-8 h-8 rounded-full bg-purple-100 items-center justify-center">
                     ✓
                   </span>
-                  <span className="break-keep">편안하고 안전한 상담 환경</span>
+                  <span className="break-keep">판단 없이 안전하게 보관돼요</span>
                 </li>
               </ul>
             </div>
