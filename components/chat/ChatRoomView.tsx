@@ -178,106 +178,97 @@ export function ChatRoomView({ roomId, onRoomCreated }: Props) {
   };
 
   /** 메시지 전송 통합 로직 (텍스트를 인자로 받음) */
-  const handleSendMessage = async (textToSend?: string) => {
-    if (isInputBlocked) return; // ✅ LOCKED/ENDED이면 전송 자체 차단
+const handleSendMessage = async (textToSend?: string) => {
+  if (isInputBlocked) return;
 
-    const finalContent = textToSend || input;
-    if (!finalContent.trim() || loading) return;
+  const finalContent = textToSend || input;
+  if (!finalContent.trim() || loading) return;
 
-    setLoading(true);
-    abortControllerRef.current = new AbortController();
+  setLoading(true);
+  abortControllerRef.current = new AbortController();
 
-    const currentFiles = [...selectedFiles];
-    setInput("");
-    setSelectedFiles([]);
+  const currentFiles = [...selectedFiles];
+  setInput("");
+  setSelectedFiles([]);
 
-    try {
-      let uploadedUrls: string[] = [];
+  let memoizedUrls: string[] = []; 
 
-      if (currentFiles.length > 0) {
-        const uploadPromises = currentFiles.map(async (item) => {
-          const formData = new FormData();
-          formData.append("file", item.file);
-          const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/conversation/upload`, {
-            method: "POST",
-            credentials: "include",
-            body: formData,
-          });
+  try {
+    const uploadedUrlsForPreview: string[] = [];
+    const uploadedPathsForDB: string[] = [];
+
+    if (currentFiles.length > 0) {
+      const uploadPromises = currentFiles.map(async (item) => {
+        const formData = new FormData();
+        formData.append("file", item.file);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/conversation/upload`, {
+          method: "POST",
+          credentials: "include",
+          body: formData,
+        });
         if (res.ok) {
-            const data = await res.json();
-            return data.file_url; 
-          }
-          return null;
-        });
-        const results = await Promise.all(uploadPromises);
-        uploadedUrls = results.filter((url): url is string => typeof url === "string" && url.length > 0);
-      }
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "USER",
-          content: finalContent,
-          file_urls: uploadedUrls,
-        },
-        { role: "ASSISTANT", content: "" },
-      ]);
-
-      const payload: ChatRequestPayload = {
-        room_id: roomId,
-        message: finalContent,
-      };
-
-      if (uploadedUrls.length > 0) {
-        payload.file_urls = uploadedUrls;
-      }
-
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/conversation/chat/stream-auto`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        signal: abortControllerRef.current.signal,
-      });
-
-      // ✅ 1) 먼저 에러 처리 (여기가 핵심)
-      if (!res.ok) {
-        const errText = await res.text();
-        console.log("sendMessage error body:", errText);
-
-        // 서버가 상태를 안 내려줘도, 전송 실패로 LOCKED 추정
-        if (
-          res.status === 429 || // Too Many Requests
-          res.status === 402 || // Payment Required (혹시)
-          res.status === 403 || // Forbidden (혹시)
-          errText.includes("한도") ||
-          errText.toLowerCase().includes("quota") ||
-          errText.toLowerCase().includes("limit")
-        ) {
-          setRoomStatus("LOCKED");
+          const data = await res.json();
+          return { preview: data.file_url, path: data.file_path };
         }
+        return null;
+      });
+      const results = await Promise.all(uploadPromises);
+      results.forEach(res => {
+        if (res) {
+          uploadedUrlsForPreview.push(res.preview);
+          uploadedPathsForDB.push(res.path);
+        }
+      });
+    }
 
-        // 마지막 assistant 빈 버블 제거(선택)
-        setMessages((prev) => prev.slice(0, -1));
-        return;
-      }
+    memoizedUrls = uploadedUrlsForPreview;
 
-      if (!res.body) return;
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let assistantText = "";
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "USER",
+        content: finalContent,
+        file_urls: memoizedUrls, 
+      },
+      { role: "ASSISTANT", content: "" },
+    ]);
 
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        assistantText += decoder.decode(value);
-        setMessages((prev) => {
-          const copy = [...prev];
-          copy[copy.length - 1] = { role: "ASSISTANT", content: assistantText };
-          return copy;
-        });
-        bottomRef.current?.scrollIntoView({ behavior: "auto" });
-      }
+    const payload: ChatRequestPayload = {
+      room_id: roomId,
+      message: finalContent,
+      file_urls: uploadedPathsForDB,
+    };
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/conversation/chat/stream-auto`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: abortControllerRef.current.signal,
+    });
+
+    if (!res.ok) {
+      setMessages((prev) => prev.slice(0, -1));
+      setLoading(false);
+      return;
+    }
+
+    if (!res.body) return;
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let assistantText = "";
+
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      assistantText += decoder.decode(value);
+      setMessages((prev) => {
+        const copy = [...prev];
+        copy[copy.length - 1] = { role: "ASSISTANT", content: assistantText };
+        return copy;
+      });
+      bottomRef.current?.scrollIntoView({ behavior: "auto" });
+    }
 
     if (roomId) {
       const syncRes = await fetch(
@@ -288,38 +279,34 @@ export function ChatRoomView({ roomId, onRoomCreated }: Props) {
       if (syncRes.ok) {
         const syncData: Message[] = await syncRes.json();
 
-        setMessages((prev) => {
-          return syncData.map((serverMsg) => {
-            if (serverMsg.role !== "USER") return serverMsg;
+        setMessages(() => {
 
-            const local = prev.find(
-              (p) =>
-                p.role === "USER" &&
-                p.content === serverMsg.content &&
-                p.file_urls &&
-                p.file_urls.length > 0
-            );
+          const lastUserMsgIndex = [...syncData].reverse().findIndex(m => m.role === "USER");
+          const targetIndex = lastUserMsgIndex !== -1 ? syncData.length - 1 - lastUserMsgIndex : -1;
 
-            return local ?? serverMsg;
+          return syncData.map((msg, idx) => {
+            if (idx === targetIndex && memoizedUrls.length > 0) {
+              return { ...msg, file_urls: memoizedUrls };
+            }
+            return msg;
           });
         });
       }
     }
 
-      if (!roomId) {
-        const roomsRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/conversation/rooms`, { credentials: "include" });
-        const rooms = await roomsRes.json();
-        const newest = rooms[0];
-        if (newest?.room_id) onRoomCreated(newest.room_id);
-      }
-    } catch (error: unknown) {
-      if (!(error instanceof Error && error.name === "AbortError")) console.error(error);
-    } finally {
-      setLoading(false);
-      abortControllerRef.current = null;
-      setTimeout(() => inputRef.current?.focus(), 10);
+    if (!roomId) {
+      const roomsRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/conversation/rooms`, { credentials: "include" });
+      const rooms = await roomsRes.json();
+      const newest = rooms[0];
+      if (newest?.room_id) onRoomCreated(newest.room_id);
     }
-  };
+  } catch (error: unknown) {
+    if (!(error instanceof Error && error.name === "AbortError")) console.error(error);
+  } finally {
+    setLoading(false);
+    abortControllerRef.current = null;
+  }
+};
 
   const sendFeedbackRequest = async (msgId: number, satisfaction: string, reason?: string, comment?: string) => {
     try {
@@ -473,7 +460,7 @@ export function ChatRoomView({ roomId, onRoomCreated }: Props) {
             {selectedFiles.map((item, idx) => (
               <div key={idx} className="relative group w-24 h-24 bg-gray-50 rounded-xl border-2 border-gray-100 flex flex-col items-center justify-center p-2 text-center shadow-sm">
                 {item.previewUrl ? (
-                  <Image src={item.previewUrl} alt="preview" fill className="object-cover rounded-xl" unoptimized />
+                  <Image src={item.previewUrl} alt="preview" fill className="object-cover rounded-xl"/>
                 ) : (
                   <>
                     <DocumentIcon className="w-8 h-8 text-gray-400 mb-1" />
