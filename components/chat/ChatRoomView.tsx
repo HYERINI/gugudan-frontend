@@ -473,9 +473,9 @@ const handleSendMessage = async (textToSend?: string) => {
             onClick={endConsultation}
             disabled={!roomId || loading || roomStatus === "ENDED"}
             className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
-            title="상담 종료"
+            title="대화 종료"
           >
-            상담 종료
+            대화 종료
           </button>
         </div>
       </header>

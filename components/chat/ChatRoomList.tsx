@@ -1,7 +1,7 @@
 "use client";
 
 import {useCallback, useEffect, useMemo, useState} from "react";
-import {EllipsisHorizontalIcon, MagnifyingGlassIcon, PlusIcon, TrashIcon} from "@heroicons/react/24/outline";
+import {EllipsisHorizontalIcon, MagnifyingGlassIcon, PlusIcon, TrashIcon, ChevronLeftIcon, Bars3Icon} from "@heroicons/react/24/outline";
 
 type ChatRoom = {
   room_id: string;

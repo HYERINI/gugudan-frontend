@@ -234,6 +234,39 @@ function getCategoryExamples(category: string) {
             </div>
           </div>
 
+          {/* 가상 대화 진입 배너*/}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg transition-all hover:shadow-purple-500/20">
+              <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-white dark:bg-neutral-900 rounded-[15px]">                 
+                <div className="flex items-center gap-5">
+                  <div className="hidden sm:flex items-center justify-center w-14 h-14 rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-500">
+                    <MessageCircle className="w-7 h-7" />
+                  </div>
+                  
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center justify-center md:justify-start gap-2">
+                      실전 대화가 걱정된다면?
+                      <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 rounded-md">AI 연습모드</span>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                      {mbtiUpperCase} 상대와 {currentCategory.title} 상황 시뮬레이션을 시작해보세요.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    track("start_simulation_chat", { mbtiType: mbtiUpperCase, category });
+                    router.push(`/chat?mbti=${mbtiUpperCase}&topic=${category}&mode=simulation`);
+                  }}
+                  className="w-full md:w-auto px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-xl hover:bg-purple-600 dark:hover:bg-purple-100 transition-colors shadow-sm active:scale-95 shrink-0"
+                >
+                  가상 대화 시작하기
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Main Content */}
           <div className="max-w-4xl mx-auto mb-12">
             <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 mb-12">
