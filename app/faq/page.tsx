@@ -74,13 +74,13 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white text-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <Card className="mb-8 border border-gray-200 bg-white">
             <CardHeader>
-              <CardTitle className="text-3xl">자주 묻는 질문</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-3xl text-gray-900">자주 묻는 질문</CardTitle>
+              <CardDescription className="text-gray-600">
                 자주 묻는 질문과 답변을 확인해보세요. 원하는 답변을 찾지 못하셨다면 1:1 문의를 이용해주세요.
               </CardDescription>
             </CardHeader>
@@ -184,7 +184,7 @@ export default function FAQPage() {
             <CardContent className="py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold mb-1">원하는 답변을 찾지 못하셨나요?</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">원하는 답변을 찾지 못하셨나요?</h3>
                   <p className="text-sm text-gray-600">
                     1:1 문의를 통해 직접 질문해주세요.
                   </p>

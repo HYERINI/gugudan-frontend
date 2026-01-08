@@ -271,7 +271,6 @@ export function AppHeader() {
                       >
                         <div className="text-left">
                           <div className="font-medium text-gray-900 dark:text-gray-100">일반 상담</div>
-                          <div className="text-xs text-gray-600 dark:text-gray-400">자유롭게 대화하기</div>
                         </div>
                       </button>
 
@@ -284,7 +283,6 @@ export function AppHeader() {
                       >
                         <div className="text-left">
                           <div className="font-medium text-gray-900 dark:text-gray-100">MBTI 시뮬레이션</div>
-                          <div className="text-xs text-gray-600 dark:text-gray-400">가상 대화 연습</div>
                         </div>
                       </button>
                     </div>

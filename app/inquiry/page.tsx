@@ -120,15 +120,15 @@ function InquiryPageContent() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white text-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <Card className="border border-gray-200 bg-white">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-3xl">1:1 문의</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-3xl text-gray-900">1:1 문의</CardTitle>
+                  <CardDescription className="text-gray-600">
                     궁금하신 점을 문의해주세요. 빠른 시간 내에 답변드리겠습니다.
                   </CardDescription>
                 </div>
