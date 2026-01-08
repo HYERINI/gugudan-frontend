@@ -41,3 +41,8 @@ export const OAUTH_PROVIDERS = {
 } as const;
 
 export type OAuthProvider = (typeof OAUTH_PROVIDERS)[keyof typeof OAUTH_PROVIDERS];
+
+// LocalStorage keys
+export const STORAGE_KEYS = {
+  SELECTED_ROOM_ID: "selectedRoomId",
+} as const;

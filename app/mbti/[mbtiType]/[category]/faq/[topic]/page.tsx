@@ -75,7 +75,7 @@ export default async function MbtiFaqTopicPage(
   const faqJsonLd = buildFaqJsonLd(finalFaqs);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       {finalFaqs.length > 0 && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
       )}
@@ -86,7 +86,7 @@ export default async function MbtiFaqTopicPage(
           <div className="mb-8 flex flex-wrap gap-3 items-center">
             <Link
               href={`${basePath}/faq`}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-gray-600 hover:text-purple-600 hover:bg-purple-50 dark:text-gray-400 dark:hover:text-purple-400 dark:hover:bg-purple-900/20 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-gray-700 hover:text-purple-600 hover:bg-purple-50 shadow-sm hover:shadow-md transition-all border border-gray-200"
             >
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -98,7 +98,7 @@ export default async function MbtiFaqTopicPage(
 
             <Link
               href={basePath}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-gray-600 hover:text-purple-600 hover:bg-purple-50 dark:text-gray-400 dark:hover:text-purple-400 dark:hover:bg-purple-900/20 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-gray-700 hover:text-purple-600 hover:bg-purple-50 shadow-sm hover:shadow-md transition-all border border-gray-200"
             >
               {mbtiUpper} × {currentCategory.title} 가이드로
             </Link>
@@ -127,8 +127,8 @@ export default async function MbtiFaqTopicPage(
           </div>
 
           {/* FAQ list */}
-          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 dark:bg-gray-900 dark:border-gray-800">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-lg">
+            <h2 className="text-lg font-bold text-gray-900">
               질문 목록
             </h2>
 
@@ -136,10 +136,10 @@ export default async function MbtiFaqTopicPage(
               {finalFaqs.map((f, idx) => (
                 <details
                   key={idx}
-                  className="group bg-white border border-gray-200 rounded-xl px-5 py-4 dark:bg-black dark:border-gray-800"
+                  className="group bg-white border border-gray-200 rounded-xl px-5 py-4 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <summary className="cursor-pointer list-none flex items-start justify-between gap-4">
-                    <h3 className="font-semibold text-gray-900 dark:text-white leading-relaxed">
+                    <h3 className="font-semibold text-gray-900 leading-relaxed">
                       {f.q}
                     </h3>
                     <span className="mt-1 text-gray-400 group-open:rotate-180 transition-transform">

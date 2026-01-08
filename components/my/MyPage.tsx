@@ -11,8 +11,7 @@ import {Avatar, AvatarFallback} from "@/components/ui/Avatar";
 import {Badge} from "@/components/ui/Badge";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/Tabs";
 import {MessageCircle, User as UserIcon, Sparkles, Heart, Calendar, Search} from "lucide-react";
-
-const STORAGE_KEY = "selectedRoomId";
+import {STORAGE_KEYS} from "@/lib/constants";
 
 type ConsultationSession = {
   id: string;
@@ -222,9 +221,9 @@ export function MyPage() {
           throw new Error(text || `삭제 실패: ${res.status}`);
         }
 
-        const selected = localStorage.getItem(STORAGE_KEY);
+        const selected = localStorage.getItem(STORAGE_KEYS.SELECTED_ROOM_ID);
         if (selected === roomId) {
-          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(STORAGE_KEYS.SELECTED_ROOM_ID);
         }
 
         setRooms((prev) => prev.filter((r) => r.id !== roomId));
@@ -655,7 +654,7 @@ export function MyPage() {
                                     if (session.mode === "simulation") {
                                       router.push(`/chat?mode=simulation&id=${session.id}`);
                                     } else {
-                                      localStorage.setItem(STORAGE_KEY, session.id);
+                                      localStorage.setItem(STORAGE_KEYS.SELECTED_ROOM_ID, session.id);
                                       router.push("/chat");
                                     }
                                   }}

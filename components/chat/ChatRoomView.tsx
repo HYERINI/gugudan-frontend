@@ -461,18 +461,18 @@ const handleSendMessage = async (textToSend?: string) => {
   };
 
   return (
-    <div className="flex flex-col flex-1 h-full bg-white relative">
+    <div className="flex flex-col flex-1 h-full bg-gradient-to-b from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-950 relative">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4 border-b bg-white/80 backdrop-blur-md sticky top-0 z-10">
+      <header className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-purple-100 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md sticky top-0 z-10">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse" />
-          <h2 className="font-bold text-gray-800 tracking-tight">마음 정리 동반자</h2>
+          <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse" />
+          <h2 className="font-bold text-gray-800 dark:text-pink-200 tracking-tight">마음 정리 동반자</h2>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={endConsultation}
             disabled={!roomId || loading || roomStatus === "ENDED"}
-            className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400"
+            className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-pink-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:text-gray-400 dark:disabled:text-pink-400 transition-colors"
             title="대화 종료"
           >
             대화 종료
@@ -486,13 +486,13 @@ const handleSendMessage = async (textToSend?: string) => {
           {messages.length === 0 ? (
             /* ✨ 관계 상담 전용 웰컴 화면 */
             <div className="flex flex-col items-center justify-center py-12 text-center animate-in fade-in zoom-in duration-700">
-              <div className="w-20 h-20 bg-pink-50 rounded-3xl flex items-center justify-center mb-8 shadow-inner">
-                <SparklesIcon className="w-12 h-12 text-pink-400" />
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
+                <SparklesIcon className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-3 tracking-tight">
+              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3 tracking-tight">
                 어떤 마음을 <br/>정리하고 싶으신가요?
               </h1>
-              <p className="text-gray-500 mb-12 max-w-sm text-sm leading-relaxed px-6">
+              <p className="text-gray-600 dark:text-pink-300 mb-12 max-w-sm text-sm leading-relaxed px-6">
                 진단이나 분석보다는, 당신이 안전하게 속마음을 <br/>꺼내고 정리할 수 있도록 곁에 머무를게요.
               </p>
               
@@ -501,13 +501,13 @@ const handleSendMessage = async (textToSend?: string) => {
                   <button 
                     key={item.id}
                     onClick={() => void handleSendMessage(item.text)}
-                    className="group p-5 text-left border border-gray-100 bg-white rounded-2xl hover:bg-pink-50 hover:border-pink-200 transition-all shadow-sm hover:shadow-md text-gray-900"
+                    className="group p-5 text-left border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-2xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20 hover:border-purple-200 dark:hover:border-purple-700 transition-all shadow-lg hover:shadow-xl text-gray-900 dark:text-pink-200"
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="text-pink-400 group-hover:scale-110 transition-transform">{item.icon}</div>
-                      <div className="font-bold group-hover:text-pink-600 transition-colors">{item.title}</div>
+                      <div className="text-purple-600 dark:text-pink-400 group-hover:scale-110 transition-transform">{item.icon}</div>
+                      <div className="font-bold group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 group-hover:bg-clip-text group-hover:text-transparent transition-all">{item.title}</div>
                     </div>
-                    <div className="text-xs text-gray-500 leading-normal">{item.desc}</div>
+                    <div className="text-xs text-gray-600 dark:text-pink-300 leading-normal">{item.desc}</div>
                   </button>
                 ))}
               </div>
@@ -520,7 +520,7 @@ const handleSendMessage = async (textToSend?: string) => {
       </div>
 
       {/* Input Area */}
-      <div className="border-t bg-white p-4 md:p-6">
+      <div className="border-t border-purple-100 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm p-4 md:p-6">
         <div className="max-w-3xl mx-auto relative group">
           <div className="flex flex-wrap gap-2 px-2 mb-3">
             {selectedFiles.map((item, idx) => (
@@ -542,7 +542,7 @@ const handleSendMessage = async (textToSend?: string) => {
               </div>
             ))}
           </div>
-          <div className="flex items-end gap-2 bg-gray-50 border border-gray-200 rounded-2xl p-2 focus-within:bg-white focus-within:border-pink-300 focus-within:ring-4 focus-within:ring-pink-50 transition-all">
+          <div className="flex items-end gap-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-2 focus-within:bg-white dark:focus-within:bg-gray-800 focus-within:border-purple-300 dark:focus-within:border-purple-600 focus-within:ring-4 focus-within:ring-purple-50 dark:focus-within:ring-purple-900/20 transition-all">
           <input 
               type="file" 
               multiple 
@@ -556,12 +556,12 @@ const handleSendMessage = async (textToSend?: string) => {
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isInputBlocked || selectedFiles.length >= MAX_FILES}
-                className="p-2.5 text-gray-400 hover:text-pink-500 hover:bg-pink-50 rounded-xl transition-all disabled:opacity-20"
+                className="p-2.5 text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-xl transition-all disabled:opacity-20"
               >
                 <PaperClipIcon className="w-6 h-6" />
               </button>
               {selectedFiles.length > 0 && (
-                <span className="text-[9px] font-bold text-pink-500 mb-1">{selectedFiles.length}/{MAX_FILES}</span>
+                <span className="text-[9px] font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-1">{selectedFiles.length}/{MAX_FILES}</span>
               )}
             </div>
 
@@ -569,7 +569,7 @@ const handleSendMessage = async (textToSend?: string) => {
               ref={inputRef}
               rows={1}
               disabled={isInputBlocked}
-              className="flex-1 max-h-48 p-2 text-base text-gray-900 bg-transparent outline-none resize-none placeholder:text-gray-400 disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex-1 max-h-48 p-2 text-base text-gray-900 dark:text-pink-200 bg-transparent outline-none resize-none placeholder:text-gray-400 dark:placeholder:text-pink-400 disabled:cursor-not-allowed disabled:opacity-60"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onCompositionStart={() => setIsComposing(true)}
@@ -584,14 +584,14 @@ const handleSendMessage = async (textToSend?: string) => {
             />
 
             {loading ? (
-              <button onClick={stopGeneration} className="p-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors">
+              <button onClick={stopGeneration} className="p-2.5 bg-gradient-to-r from-gray-700 to-gray-800 text-white rounded-xl hover:from-gray-800 hover:to-gray-900 transition-all shadow-lg">
                 <StopIcon className="w-5 h-5" />
               </button>
             ) : (
               <button 
                 onClick={() => void handleSendMessage()}
                 disabled={!input.trim() || isInputBlocked}
-                className="p-2.5 bg-pink-500 text-white rounded-xl hover:bg-pink-600 disabled:bg-gray-200 disabled:text-gray-400 transition-all shadow-sm"
+                className="p-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 disabled:bg-gray-200 disabled:text-gray-400 transition-all shadow-lg hover:shadow-xl"
               >
                 <PaperAirplaneIcon className="w-5 h-5" />
               </button>
@@ -605,7 +605,7 @@ const handleSendMessage = async (textToSend?: string) => {
             </div>
           )}
 
-          <p className="text-[11px] text-gray-400 mt-3 text-center tracking-tight">
+          <p className="text-[11px] text-gray-400 dark:text-pink-300 mt-3 text-center tracking-tight">
             이 대화는 오직 당신의 기록 페이지에서 다시 돌아보며 마음을 정리하는 용도로만 사용됩니다.
           </p>
         </div>

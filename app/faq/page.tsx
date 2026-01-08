@@ -74,13 +74,13 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <Card className="mb-8 border border-gray-200 bg-white">
+          <Card className="mb-8 border border-gray-200 bg-white dark:bg-gray-800">
             <CardHeader>
-              <CardTitle className="text-3xl text-gray-900">자주 묻는 질문</CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardTitle className="text-3xl text-gray-900 dark:text-pink-200">자주 묻는 질문</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-pink-300">
                 자주 묻는 질문과 답변을 확인해보세요. 원하는 답변을 찾지 못하셨다면 1:1 문의를 이용해주세요.
               </CardDescription>
             </CardHeader>
@@ -94,7 +94,7 @@ export default function FAQPage() {
                     placeholder="질문 검색..."
                     value={searchKeyword}
                     onChange={(e) => setSearchKeyword(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200 placeholder:text-gray-400 dark:placeholder:text-pink-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -122,18 +122,18 @@ export default function FAQPage() {
 
               {/* FAQ List */}
               {loading ? (
-                <div className="py-10 text-center text-gray-600">
+                <div className="py-10 text-center text-gray-600 dark:text-pink-300">
                   불러오는 중...
                 </div>
               ) : error ? (
                 <div className="py-10 text-center">
-                  <p className="text-sm text-red-600 mb-3">{error}</p>
+                  <p className="text-sm text-red-600 dark:text-red-400 mb-3">{error}</p>
                   <Button variant="outline" onClick={fetchFAQs}>
                     다시 시도
                   </Button>
                 </div>
               ) : filteredFaqs.length === 0 ? (
-                <div className="py-10 text-center text-gray-600">
+                <div className="py-10 text-center text-gray-600 dark:text-pink-300">
                   {searchKeyword || selectedCategory !== "ALL"
                     ? "검색 결과가 없습니다."
                     : "등록된 FAQ가 없습니다."}
@@ -147,29 +147,29 @@ export default function FAQPage() {
                     >
                       <button
                         onClick={() => toggleExpand(faq.id)}
-                        className="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition"
+                        className="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition"
                       >
                         <div className="flex-1 flex items-start gap-3">
                           <Badge variant="secondary">
                             {FAQ_CATEGORY_LABELS[faq.category]}
                           </Badge>
-                          <span className="font-medium text-gray-900">{faq.question}</span>
+                          <span className="font-medium text-gray-900 dark:text-pink-200">{faq.question}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-500 dark:text-pink-300">
                             조회 {faq.view_count}
                           </span>
                           {expandedId === faq.id ? (
-                            <ChevronUp className="w-5 h-5 text-gray-400" />
+                            <ChevronUp className="w-5 h-5 text-gray-400 dark:text-pink-400" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-400" />
+                            <ChevronDown className="w-5 h-5 text-gray-400 dark:text-pink-400" />
                           )}
                         </div>
                       </button>
 
                       {expandedId === faq.id && (
-                        <div className="px-4 py-4 bg-gray-50 border-t border-gray-200">
-                          <p className="text-gray-700 whitespace-pre-wrap">{faq.answer}</p>
+                        <div className="px-4 py-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200">
+                          <p className="text-gray-700 dark:text-pink-200 whitespace-pre-wrap">{faq.answer}</p>
                         </div>
                       )}
                     </div>
@@ -180,12 +180,12 @@ export default function FAQPage() {
           </Card>
 
           {/* Link to Inquiry */}
-          <Card className="border border-gray-200 bg-white">
+          <Card className="border border-gray-200 bg-white dark:bg-gray-800">
             <CardContent className="py-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">원하는 답변을 찾지 못하셨나요?</h3>
-                  <p className="text-sm text-gray-600">
+                  <h3 className="font-semibold mb-1 text-gray-900 dark:text-pink-200">원하는 답변을 찾지 못하셨나요?</h3>
+                  <p className="text-sm text-gray-600 dark:text-pink-300">
                     1:1 문의를 통해 직접 질문해주세요.
                   </p>
                 </div>

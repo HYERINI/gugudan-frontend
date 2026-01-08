@@ -94,15 +94,15 @@ function InquiryDetailContent() {
   const getStatusBadgeColor = (status: string) => {
     switch (status) {
       case "PENDING":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+        return "bg-yellow-100 text-yellow-800 border-yellow-200 dark:bg-yellow-900/30 dark:text-pink-300 dark:border-yellow-700";
       case "IN_PROGRESS":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-pink-300 dark:border-blue-700";
       case "RESOLVED":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-pink-300 dark:border-green-700";
       case "CLOSED":
-        return "bg-gray-100 text-gray-700 border-gray-200";
+        return "bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-pink-300 dark:border-gray-700";
       default:
-        return "bg-gray-100 text-gray-700 border-gray-200";
+        return "bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-pink-300 dark:border-gray-700";
     }
   };
 
@@ -130,13 +130,13 @@ function InquiryDetailContent() {
 
   if (error) {
     return (
-      <div className="min-h-[calc(100vh-64px)] bg-white text-gray-900">
+      <div className="min-h-[calc(100vh-64px)] bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="border border-gray-200 bg-white">
+            <Card className="border border-gray-200 bg-white dark:bg-gray-800">
               <CardContent className="py-10">
                 <div className="text-center">
-                  <p className="text-red-600 mb-4">{error}</p>
+                  <p className="text-red-600 dark:text-red-400 mb-4">{error}</p>
                   <div className="flex gap-3 justify-center">
                     <Button variant="outline" onClick={() => router.push("/inquiry")}>
                       목록으로
@@ -154,12 +154,12 @@ function InquiryDetailContent() {
 
   if (!inquiry) {
     return (
-      <div className="min-h-[calc(100vh-64px)] bg-white text-gray-900">
+      <div className="min-h-[calc(100vh-64px)] bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="border border-gray-200 bg-white">
+            <Card className="border border-gray-200 bg-white dark:bg-gray-800">
               <CardContent className="py-10">
-                <div className="text-center text-gray-600">
+                <div className="text-center text-gray-600 dark:text-pink-300">
                   <p>문의를 찾을 수 없습니다.</p>
                 </div>
               </CardContent>
@@ -171,7 +171,7 @@ function InquiryDetailContent() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white text-gray-900">
+    <div className="min-h-[calc(100vh-64px)] bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
@@ -185,7 +185,7 @@ function InquiryDetailContent() {
           </Button>
 
           {/* Inquiry Detail Card */}
-          <Card className="border border-gray-200 bg-white mb-6">
+          <Card className="border border-gray-200 bg-white dark:bg-gray-800 mb-6">
             <CardHeader className="border-b border-gray-100">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -197,16 +197,16 @@ function InquiryDetailContent() {
                     {INQUIRY_STATUS_LABELS[inquiry.status]}
                   </Badge>
                 </div>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-gray-500 dark:text-pink-300">
                   {formatDate(inquiry.created_at)}
                 </span>
               </div>
-              <CardTitle className="text-3xl">{inquiry.title}</CardTitle>
+              <CardTitle className="text-3xl text-gray-900 dark:text-pink-200">{inquiry.title}</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
               <div className="prose max-w-none">
-                <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                  <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">
+                <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg border border-gray-200">
+                  <p className="text-gray-800 dark:text-pink-200 whitespace-pre-wrap leading-relaxed">
                     {inquiry.content}
                   </p>
                 </div>
@@ -216,13 +216,13 @@ function InquiryDetailContent() {
 
           {/* Replies Section */}
           {replies && replies.length > 0 ? (
-            <Card className="border border-gray-200 bg-white">
+            <Card className="border border-gray-200 bg-white dark:bg-gray-800">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-pink-200">
                   <MessageCircle className="w-5 h-5" />
                   답변 ({replies.length})
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-600 dark:text-pink-300">
                   관리자의 답변을 확인하세요
                 </CardDescription>
               </CardHeader>
@@ -233,23 +233,23 @@ function InquiryDetailContent() {
                       key={reply.id}
                       className={`p-5 rounded-lg border ${
                         reply.is_admin_reply
-                          ? "bg-blue-50 border-blue-200"
-                          : "bg-gray-50 border-gray-200"
+                          ? "bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-700"
+                          : "bg-gray-50 border-gray-200 dark:bg-gray-700"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-gray-700">
+                          <span className="text-sm font-medium text-gray-700 dark:text-pink-200">
                             {reply.is_admin_reply
                               ? "관리자"
                               : `${user?.nickname}님`}
                           </span>
                         </div>
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-gray-500 dark:text-pink-300">
                           {formatDate(reply.created_at)}
                         </span>
                       </div>
-                      <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">
+                      <p className="text-gray-800 dark:text-pink-200 whitespace-pre-wrap leading-relaxed">
                         {reply.content}
                       </p>
                     </div>
@@ -258,13 +258,13 @@ function InquiryDetailContent() {
               </CardContent>
             </Card>
           ) : (
-            <Card className="border border-gray-200 bg-white">
+            <Card className="border border-gray-200 bg-white dark:bg-gray-800">
               <CardContent className="py-12">
                 <div className="text-center">
-                  <MessageCircle className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-600 mb-2">아직 답변이 없습니다</p>
+                  <MessageCircle className="w-12 h-12 text-gray-300 dark:text-pink-400 mx-auto mb-3" />
+                  <p className="text-gray-600 dark:text-pink-300 mb-2">아직 답변이 없습니다</p>
                   {inquiry.status === "PENDING" && (
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-500 dark:text-pink-300">
                       빠른 시간 내에 답변드리겠습니다.
                     </p>
                   )}
@@ -275,10 +275,10 @@ function InquiryDetailContent() {
 
           {/* Reply Form - 문의가 종료되지 않은 경우에만 표시 */}
           {inquiry.status !== "CLOSED" && (
-            <Card className="border border-gray-200 bg-white">
+            <Card className="border border-gray-200 bg-white dark:bg-gray-800">
               <CardHeader>
-                <CardTitle className="text-lg">추가 문의</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-lg text-gray-900 dark:text-pink-200">추가 문의</CardTitle>
+                <CardDescription className="text-gray-600 dark:text-pink-300">
                   추가 질문이나 답변에 대한 의견을 남겨주세요.
                 </CardDescription>
               </CardHeader>
@@ -287,7 +287,7 @@ function InquiryDetailContent() {
                   <textarea
                     value={replyContent}
                     onChange={(e) => setReplyContent(e.target.value)}
-                    className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[120px]"
+                    className="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[120px] bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200 placeholder:text-gray-400 dark:placeholder:text-pink-400"
                     placeholder="추가 문의 내용을 입력해주세요"
                     disabled={submittingReply}
                     required
@@ -307,12 +307,12 @@ function InquiryDetailContent() {
 
           {/* Status Info */}
           {inquiry.status === "PENDING" && (
-            <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div className="mt-6 bg-yellow-50 border border-yellow-200 dark:bg-yellow-900/20 dark:border-yellow-700 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-yellow-600 mt-0.5" />
+                <Clock className="w-5 h-5 text-yellow-600 dark:text-pink-400 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-yellow-900 mb-1">답변 대기 중</h4>
-                  <p className="text-sm text-yellow-800">
+                  <h4 className="font-semibold text-yellow-900 dark:text-pink-200 mb-1">답변 대기 중</h4>
+                  <p className="text-sm text-yellow-800 dark:text-pink-300">
                     문의하신 내용을 확인하고 있습니다. 빠른 시간 내에 답변드리겠습니다.
                   </p>
                 </div>
@@ -321,12 +321,12 @@ function InquiryDetailContent() {
           )}
 
           {inquiry.status === "IN_PROGRESS" && (
-            <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="mt-6 bg-blue-50 border border-blue-200 dark:bg-blue-900/20 dark:border-blue-700 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <MessageCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+                <MessageCircle className="w-5 h-5 text-blue-600 dark:text-pink-400 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-blue-900 mb-1">처리 중</h4>
-                  <p className="text-sm text-blue-800">
+                  <h4 className="font-semibold text-blue-900 dark:text-pink-200 mb-1">처리 중</h4>
+                  <p className="text-sm text-blue-800 dark:text-pink-300">
                     문의하신 내용을 처리하고 있습니다. 곧 답변을 받으실 수 있습니다.
                   </p>
                 </div>
@@ -335,12 +335,12 @@ function InquiryDetailContent() {
           )}
 
           {inquiry.status === "RESOLVED" && (
-            <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="mt-6 bg-green-50 border border-green-200 dark:bg-green-900/20 dark:border-green-700 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-pink-400 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-green-900 mb-1">해결 완료</h4>
-                  <p className="text-sm text-green-800">
+                  <h4 className="font-semibold text-green-900 dark:text-pink-200 mb-1">해결 완료</h4>
+                  <p className="text-sm text-green-800 dark:text-pink-300">
                     문의하신 내용이 해결되었습니다. 추가 문의사항이 있으시면 새로운 문의를 등록해주세요.
                   </p>
                 </div>

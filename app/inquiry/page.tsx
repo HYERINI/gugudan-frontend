@@ -99,15 +99,15 @@ function InquiryPageContent() {
   const getStatusBadgeColor = (status: InquiryStatus) => {
     switch (status) {
       case InquiryStatus.PENDING:
-        return "bg-yellow-100 text-yellow-800";
+        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-pink-300";
       case InquiryStatus.IN_PROGRESS:
-        return "bg-blue-100 text-blue-800";
+        return "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-pink-300";
       case InquiryStatus.RESOLVED:
-        return "bg-green-100 text-green-800";
+        return "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-pink-300";
       case InquiryStatus.CLOSED:
-        return "bg-gray-100 text-gray-700";
+        return "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-pink-300";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-pink-300";
     }
   };
 
@@ -120,15 +120,15 @@ function InquiryPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <Card className="border border-gray-200 bg-white">
+          <Card className="border border-gray-200 bg-white dark:bg-gray-800">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-3xl text-gray-900">1:1 문의</CardTitle>
-                  <CardDescription className="text-gray-600">
+                  <CardTitle className="text-3xl text-gray-900 dark:text-pink-200">1:1 문의</CardTitle>
+                  <CardDescription className="text-gray-600 dark:text-pink-300">
                     궁금하신 점을 문의해주세요. 빠른 시간 내에 답변드리겠습니다.
                   </CardDescription>
                 </div>
@@ -151,20 +151,20 @@ function InquiryPageContent() {
               {activeTab === "list" && (
                 <div>
                   {loading ? (
-                    <div className="py-10 text-center text-gray-600">
+                    <div className="py-10 text-center text-gray-600 dark:text-pink-300">
                       불러오는 중...
                     </div>
                   ) : error ? (
                     <div className="py-10 text-center">
-                      <p className="text-sm text-red-600 mb-3">{error}</p>
+                      <p className="text-sm text-red-600 dark:text-red-400 mb-3">{error}</p>
                       <Button variant="outline" onClick={fetchInquiries}>
                         다시 시도
                       </Button>
                     </div>
                   ) : inquiries.length === 0 ? (
                     <div className="py-10 text-center">
-                      <MessageCircle className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                      <p className="text-gray-600 mb-4">아직 문의 내역이 없습니다.</p>
+                      <MessageCircle className="w-12 h-12 text-gray-300 dark:text-pink-400 mx-auto mb-3" />
+                      <p className="text-gray-600 dark:text-pink-300 mb-4">아직 문의 내역이 없습니다.</p>
                       <Button onClick={() => setActiveTab("create")}>
                         첫 문의 작성하기
                       </Button>
@@ -175,7 +175,7 @@ function InquiryPageContent() {
                         <div
                           key={inquiry.id}
                           onClick={() => handleInquiryClick(inquiry.id)}
-                          className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 cursor-pointer transition"
+                          className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition"
                         >
                           <div className="flex items-start justify-between mb-2">
                             <div className="flex items-center gap-2">
@@ -186,14 +186,14 @@ function InquiryPageContent() {
                                 {INQUIRY_STATUS_LABELS[inquiry.status]}
                               </Badge>
                             </div>
-                            <span className="text-xs text-gray-500">
+                            <span className="text-xs text-gray-500 dark:text-pink-300">
                               {formatDate(inquiry.created_at)}
                             </span>
                           </div>
-                          <h3 className="font-semibold text-gray-900 mb-1">
+                          <h3 className="font-semibold text-gray-900 dark:text-pink-200 mb-1">
                             {inquiry.title}
                           </h3>
-                          <p className="text-sm text-gray-600 line-clamp-2">
+                          <p className="text-sm text-gray-600 dark:text-pink-300 line-clamp-2">
                             {inquiry.content}
                           </p>
                         </div>
@@ -207,7 +207,7 @@ function InquiryPageContent() {
               {activeTab === "create" && (
                 <form onSubmit={handleCreateInquiry} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-pink-200 mb-2">
                       문의 유형
                     </label>
                     <select
@@ -215,11 +215,11 @@ function InquiryPageContent() {
                       onChange={(e) =>
                         setFormData({ ...formData, category: e.target.value as InquiryCategory })
                       }
-                      className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200"
                       disabled={submitting}
                     >
                       {Object.entries(INQUIRY_CATEGORY_LABELS).map(([category, label]) => (
-                        <option key={category} value={category}>
+                        <option key={category} value={category} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200">
                           {label}
                         </option>
                       ))}
@@ -227,7 +227,7 @@ function InquiryPageContent() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-pink-200 mb-2">
                       제목
                     </label>
                     <input
@@ -236,7 +236,7 @@ function InquiryPageContent() {
                       onChange={(e) =>
                         setFormData({ ...formData, title: e.target.value })
                       }
-                      className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200 placeholder:text-gray-400 dark:placeholder:text-pink-400"
                       placeholder="문의 제목을 입력해주세요"
                       disabled={submitting}
                       required
@@ -244,7 +244,7 @@ function InquiryPageContent() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-pink-200 mb-2">
                       내용
                     </label>
                     <textarea
@@ -252,7 +252,7 @@ function InquiryPageContent() {
                       onChange={(e) =>
                         setFormData({ ...formData, content: e.target.value })
                       }
-                      className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[200px]"
+                      className="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[200px] bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200 placeholder:text-gray-400 dark:placeholder:text-pink-400"
                       placeholder="문의 내용을 상세히 입력해주세요"
                       disabled={submitting}
                       required

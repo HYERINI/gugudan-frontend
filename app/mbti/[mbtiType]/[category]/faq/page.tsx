@@ -84,14 +84,14 @@ export default async function MbtiFaqIndexPage(
   });
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <div className="pt-24 pb-16">
         <div className="max-w-5xl mx-auto px-6">
           {/* Back */}
           <div className="mb-8">
             <Link
               href={basePath}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:text-purple-600 hover:bg-purple-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-purple-900/20 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-gray-700 hover:text-purple-600 hover:bg-purple-50 shadow-sm hover:shadow-md transition-all border border-gray-200"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -126,24 +126,15 @@ export default async function MbtiFaqIndexPage(
               <Link
                 key={t.key}
                 href={`${basePath}/faq/${t.key}`}
-                className="group rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-lg hover:border-purple-200 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-purple-500 transition-all"
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               >
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-                    {t.title}
-                  </h2>
-                </div>
+                <h2 className="text-base font-semibold text-gray-900">
+                  {t.title}
+                </h2>
 
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                <p className="mt-2 text-sm text-gray-600">
                   해당 주제에서 많이 나오는 질문을 모아봤어요.
                 </p>
-
-                <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-purple-600 dark:text-purple-400 group-hover:gap-3 transition-all">
-                  주제 보기
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
               </Link>
             ))}
           </div>

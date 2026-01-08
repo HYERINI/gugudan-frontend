@@ -51,9 +51,9 @@ function getCategoryExamples(category: string) {
         type: "논리 분석",
         reaction: "왜 헤어졌어? 원인이 뭐였어?",
         explanation: "내 머릿속 논리로 상황을 분석하려고 해요",
-        borderColor: "border-purple-400 dark:border-purple-600",
-        bgGradient: "from-purple-50/50 to-transparent dark:from-purple-900/20 dark:to-transparent",
-        badgeStyle: "bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300"
+        borderColor: "border-purple-400 ",
+        bgGradient: "from-purple-50/50 to-transparent",
+        badgeStyle: "bg-purple-100 text-purple-700"
       },
       {
         key: "Te",
@@ -61,9 +61,9 @@ function getCategoryExamples(category: string) {
         type: "해결책 제시",
         reaction: "그래서 이제 어떻게 할 거야?",
         explanation: "실질적인 다음 행동에 집중해요",
-        borderColor: "border-blue-400 dark:border-blue-600",
-        bgGradient: "from-blue-50/50 to-transparent dark:from-blue-900/20 dark:to-transparent",
-        badgeStyle: "bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+        borderColor: "border-blue-400",
+        bgGradient: "from-blue-50/50 to-transparent ",
+        badgeStyle: "bg-blue-100 text-blue-700"
       }
     ],
     feeling: [
@@ -73,9 +73,9 @@ function getCategoryExamples(category: string) {
         type: "내 경험 공감",
         reaction: "너 진짜 힘들겠다... 나도 그랬었어",
         explanation: "내 감정과 경험을 기반으로 공감해요",
-        borderColor: "border-pink-400 dark:border-pink-600",
-        bgGradient: "from-pink-50/50 to-transparent dark:from-pink-900/20 dark:to-transparent",
-        badgeStyle: "bg-pink-100 dark:bg-pink-900/50 text-pink-700 dark:text-pink-300"
+        borderColor: "border-pink-400",
+        bgGradient: "from-pink-50/50 to-transparent",
+        badgeStyle: "bg-pink-100 text-pink-700 "
       },
       {
         key: "Fe",
@@ -83,9 +83,9 @@ function getCategoryExamples(category: string) {
         type: "즉각 위로",
         reaction: "괜찮아? 울어도 돼, 내가 옆에 있을게",
         explanation: "상대의 감정에 즉시 반응하고 위로해요",
-        borderColor: "border-rose-400 dark:border-rose-600",
-        bgGradient: "from-rose-50/50 to-transparent dark:from-rose-900/20 dark:to-transparent",
-        badgeStyle: "bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300"
+        borderColor: "border-rose-400 ",
+        bgGradient: "from-rose-50/50 to-transparent",
+        badgeStyle: "bg-rose-100 text-rose-700"
       }
     ],
     intuition: [
@@ -95,9 +95,9 @@ function getCategoryExamples(category: string) {
         type: "의미 찾기",
         reaction: "이번 일로 네가 뭘 깨달았을까?",
         explanation: "경험의 깊은 의미와 통찰을 찾아요",
-        borderColor: "border-indigo-400 dark:border-indigo-600",
-        bgGradient: "from-indigo-50/50 to-transparent dark:from-indigo-900/20 dark:to-transparent",
-        badgeStyle: "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300"
+        borderColor: "border-indigo-400",
+        bgGradient: "from-indigo-50/50 to-transparent",
+        badgeStyle: "bg-indigo-100 text-indigo-700"
       },
       {
         key: "Ne",
@@ -105,9 +105,9 @@ function getCategoryExamples(category: string) {
         type: "가능성 제시",
         reaction: "혼자 여행도 가보고, 새로운 사람도 만나고!",
         explanation: "다양한 가능성과 새로운 방향을 제시해요",
-        borderColor: "border-sky-400 dark:border-sky-600",
-        bgGradient: "from-sky-50/50 to-transparent dark:from-sky-900/20 dark:to-transparent",
-        badgeStyle: "bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300"
+        borderColor: "border-sky-400",
+        bgGradient: "from-sky-50/50 to-transparent",
+        badgeStyle: "bg-sky-100 text-sky-700"
       }
     ],
     sensing: [
@@ -117,9 +117,9 @@ function getCategoryExamples(category: string) {
         type: "과거 회상",
         reaction: "너희 처음 만났을 때 얼마나 좋아했는데...",
         explanation: "과거의 구체적인 기억을 떠올려요",
-        borderColor: "border-amber-400 dark:border-amber-600",
-        bgGradient: "from-amber-50/50 to-transparent dark:from-amber-900/20 dark:to-transparent",
-        badgeStyle: "bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300"
+        borderColor: "border-amber-400 ",
+        bgGradient: "from-amber-50/50 to-transparent",
+        badgeStyle: "bg-amber-100 text-amber-700"
       },
       {
         key: "Se",
@@ -127,9 +127,9 @@ function getCategoryExamples(category: string) {
         type: "즉시 행동",
         reaction: "오늘 저녁이나 먹으러 가자, 맛있는 거 먹으면서 풀어",
         explanation: "지금 당장 할 수 있는 행동에 집중해요",
-        borderColor: "border-red-400 dark:border-red-600",
-        bgGradient: "from-red-50/50 to-transparent dark:from-red-900/20 dark:to-transparent",
-        badgeStyle: "bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300"
+        borderColor: "border-red-400",
+        bgGradient: "from-red-50/50 to-transparent ",
+        badgeStyle: "bg-red-100 text-red-700 "
       }
     ]
   };
@@ -143,10 +143,10 @@ function getCategoryExamples(category: string) {
   // ✅ mbtiType이 비면 화면을 억지로 그리지 말고 안전하게 리턴
   if (!mbtiType) {
     return (
-      <div className="min-h-screen bg-white dark:bg-neutral-950">
+      <div className="bg-gradient-to-b from-purple-50 to-pink-50">
         <div className="pt-24 pb-16">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 dark:border-white/10 p-6 text-gray-600 dark:text-gray-300">
+            <div className="rounded-2xl border border-gray-200  p-6 text-gray-600">
               페이지 정보를 불러오는 중...
             </div>
           </div>
@@ -194,7 +194,7 @@ function getCategoryExamples(category: string) {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       {/* ✅ SEO: FAQPage JSON-LD */}
       {faqs.length > 0 && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
@@ -237,18 +237,18 @@ function getCategoryExamples(category: string) {
           {/* 가상 대화 진입 배너*/}
           <div className="max-w-4xl mx-auto mb-8">
             <div className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg transition-all hover:shadow-purple-500/20">
-              <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-white dark:bg-neutral-900 rounded-[15px]">                 
+              <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-white  rounded-[15px]">                 
                 <div className="flex items-center gap-5">
-                  <div className="hidden sm:flex items-center justify-center w-14 h-14 rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-500">
+                  <div className="hidden sm:flex items-center justify-center w-14 h-14 rounded-xl bg-purple-50 text-purple-600 group-hover:scale-110 transition-transform duration-500">
                     <MessageCircle className="w-7 h-7" />
                   </div>
                   
                   <div className="text-center md:text-left">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center justify-center md:justify-start gap-2">
+                    <h3 className="text-xl font-bold text-gray-900 flex items-center justify-center md:justify-start gap-2">
                       실전 대화가 걱정된다면?
-                      <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 rounded-md">AI 연습모드</span>
+                      <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] bg-purple-100 text-purple-700 rounded-md">AI 연습모드</span>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    <p className="mt-1 text-sm text-gray-500 leading-relaxed">
                       {mbtiUpperCase} 상대와 {currentCategory.title} 상황 시뮬레이션을 시작해보세요.
                     </p>
                   </div>
@@ -259,7 +259,7 @@ function getCategoryExamples(category: string) {
                     track("start_simulation_chat", { mbtiType: mbtiUpperCase, category });
                     router.push(`/chat?mbti=${mbtiUpperCase}&topic=${category}&mode=simulation`);
                   }}
-                  className="w-full md:w-auto px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-xl hover:bg-purple-600 dark:hover:bg-purple-100 transition-colors shadow-sm active:scale-95 shrink-0"
+                  className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl active:scale-95 shrink-0"
                 >
                   가상 대화 시작하기
                 </button>
@@ -287,7 +287,7 @@ function getCategoryExamples(category: string) {
                   <button
                     key={index}
                     type="button"
-                    className="text-left bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    className="text-left bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
                     onClick={() =>
                       track("mbti_section_click", {
                         mbtiType: mbtiUpperCase,
@@ -302,10 +302,10 @@ function getCategoryExamples(category: string) {
                     >
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-gray-100">
+                    <h3 className="mb-3 text-lg font-bold text-gray-900">
                       {section.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{section.content}</p>
+                    <p className="text-gray-600 leading-relaxed">{section.content}</p>
                   </button>
                 );
               })}
@@ -314,7 +314,7 @@ function getCategoryExamples(category: string) {
 
           {/* Other Categories */}
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-center mb-8 text-lg font-bold text-gray-900 dark:text-white">
+            <h3 className="text-center mb-8 text-lg font-bold text-gray-900">
               {mbtiUpperCase}의 다른 관계 가이드도 확인해보세요
             </h3>
 
@@ -347,20 +347,20 @@ function getCategoryExamples(category: string) {
 
           {/* FAQ Preview */}
           <div className="max-w-4xl mx-auto mt-12">
-            <div className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-8">
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
               <div className="flex items-start justify-between gap-4 flex-wrap">
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                  <h2 className="text-xl font-bold text-gray-900">
                     {mbtiUpperCase} {currentCategory.title} - 자주 묻는 질문
                   </h2>
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                  <p className="mt-1 text-sm text-gray-600">
                     토픽을 눌러서 바로 확인해보세요.
                   </p>
                 </div>
 
                 <Link
                   href={`/mbti/${mbtiType}/${category}/faq`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 hover:gap-3 transition-all shrink-0"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium hover:from-purple-700 hover:to-pink-700 hover:gap-3 transition-all shadow-md hover:shadow-lg shrink-0"
                   onClick={() => track("mbti_faq_all_click", { mbtiType: mbtiUpperCase, category })}
                 >
                   전체 FAQ 보기
@@ -376,7 +376,7 @@ function getCategoryExamples(category: string) {
                   <Link
                     key={t.key}
                     href={`/mbti/${mbtiType}/${category}/faq/${t.key}`}
-                    className="px-3 py-2 rounded-full bg-white dark:bg-neutral-950 border border-gray-200 dark:border-white/10 text-sm text-gray-800 dark:text-gray-100 hover:shadow-sm transition"
+                    className="px-3 py-2 rounded-full bg-white border border-gray-200 text-sm text-gray-800 hover:bg-purple-50 hover:text-purple-700 hover:border-purple-200 hover:shadow-md transition-all"
                     onClick={() =>
                       track("mbti_faq_topic_click", { mbtiType: mbtiUpperCase, category, topic: t.key })
                     }
@@ -387,7 +387,7 @@ function getCategoryExamples(category: string) {
                 ))}
               </div>
               
-              <p className="mt-6 text-xs text-gray-500 dark:text-gray-400">
+              <p className="mt-6 text-xs text-gray-500">
                 ※ MBTI 성향 기반 참고용 요약이며, 개인차가 있을 수 있어요.
               </p>
             </div>
@@ -396,17 +396,17 @@ function getCategoryExamples(category: string) {
           {/* Cognitive Functions (Optional / Advanced) */}
           {cognitiveFunctions[mbtiUpperCase] && (
             <div className="max-w-4xl mx-auto mt-12">
-              <details className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
-                <summary className="cursor-pointer list-none flex items-center justify-between p-8 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+              <details className="group bg-white border border-gray-200 rounded-2xl overflow-hidden">
+                <summary className="cursor-pointer list-none flex items-center justify-between p-8 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
                       💡
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                      <h2 className="text-lg font-bold text-gray-900 ">
                         심화 · {mbtiUpperCase}의 인지 기능으로 보는 관계 패턴
                       </h2>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                      <p className="text-sm text-gray-500 mt-0.5">
                         아래 내용은 성향을 이해하기 위한 참고용 설명이에요
                       </p>
                     </div>
@@ -417,21 +417,21 @@ function getCategoryExamples(category: string) {
                 <div className="p-8 pt-0 space-y-6">
                   {/* 주기능·보조기능 vs 3차·열등기능 */}
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-5 border border-purple-100 dark:border-purple-800/30">
-                      <h4 className="font-bold text-purple-900 dark:text-purple-100 mb-2">
+                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-5 border border-purple-100 ">
+                      <h4 className="font-bold text-purple-900 mb-2">
                         주기능 · 보조기능
                       </h4>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">
+                      <p className="text-sm text-gray-700">
                         {cognitiveFunctions[mbtiUpperCase].dominant},{" "}
                         {cognitiveFunctions[mbtiUpperCase].auxiliary}
                       </p>
                     </div>
 
-                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-5 border border-blue-100 dark:border-blue-800/30">
-                      <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-5 border border-blue-100">
+                      <h4 className="font-bold text-blue-900 mb-2">
                         3차 · 열등기능
                       </h4>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">
+                      <p className="text-sm text-gray-700">
                         {cognitiveFunctions[mbtiUpperCase].tertiary},{" "}
                         {cognitiveFunctions[mbtiUpperCase].inferior}
                       </p>
@@ -439,12 +439,12 @@ function getCategoryExamples(category: string) {
                   </div>
 
                   {/* 관계 패턴 3가지 */}
-                  <details className="group/pattern bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
-                    <summary className="cursor-pointer list-none p-5 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                  <details className="group/pattern bg-white rounded-xl border border-gray-200">
+                    <summary className="cursor-pointer list-none p-5 hover:bg-gray-50 transition-colors">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-xl">💡</span>
-                          <h4 className="font-bold text-gray-900 dark:text-gray-100">
+                          <h4 className="font-bold text-gray-900 ">
                             관계 패턴 더 알아보기
                           </h4>
                         </div>
@@ -455,42 +455,42 @@ function getCategoryExamples(category: string) {
                     </summary>
 
                     <div className="p-5 pt-0 space-y-4">
-                      <div className="bg-white dark:bg-neutral-950 rounded-xl p-6 border border-gray-200 dark:border-white/10">
+                      <div className="bg-white rounded-xl p-6 border border-gray-200 ">
                         <div className="flex items-start gap-3">
                           <span className="text-2xl">✨</span>
                           <div>
-                            <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">
+                            <h4 className="font-bold text-gray-900  mb-2">
                               관계에서의 강점
                             </h4>
-                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p className="text-gray-700 leading-relaxed">
                               {cognitiveFunctions[mbtiUpperCase].summary.strength}
                             </p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="bg-white dark:bg-neutral-950 rounded-xl p-6 border border-gray-200 dark:border-white/10">
+                      <div className="bg-white rounded-xl p-6 border border-gray-200 ">
                         <div className="flex items-start gap-3">
                           <span className="text-2xl">🔍</span>
                           <div>
-                            <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">
+                            <h4 className="font-bold text-gray-900  mb-2">
                               흔히 생기는 오해
                             </h4>
-                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p className="text-gray-700 leading-relaxed">
                               {cognitiveFunctions[mbtiUpperCase].summary.risk}
                             </p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800/30">
+                      <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
                         <div className="flex items-start gap-3">
                           <span className="text-2xl">💚</span>
                           <div>
-                            <h4 className="font-bold text-green-900 dark:text-green-100 mb-2">
+                            <h4 className="font-bold text-green-900">
                               관계를 위한 작은 팁
                             </h4>
-                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p className="text-gray-700 leading-relaxed">
                               {cognitiveFunctions[mbtiUpperCase].summary.tip}
                             </p>
                           </div>
@@ -500,20 +500,20 @@ function getCategoryExamples(category: string) {
                   </details>
 
                   {/* ℹ️ 인지 기능 안내 박스 - 전체 접기/펼치기 */}
-                  <details className="group/cognitive rounded-xl border-2 border-dashed border-purple-200 dark:border-purple-700/50 bg-purple-50/50 dark:bg-purple-900/10 overflow-hidden">
-                    <summary className="cursor-pointer list-none p-5 hover:bg-purple-100/50 dark:hover:bg-purple-900/20 transition-colors">
+                  <details className="group/cognitive rounded-xl border-2 border-dashed border-purple-200 bg-purple-50/50 overflow-hidden">
+                    <summary className="cursor-pointer list-none p-5 hover:bg-purple-100/50 transition-colors">
                       <div className="flex items-start gap-3">
                         <span className="text-xl">ℹ️</span>
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
-                            <p className="font-bold text-purple-900 dark:text-purple-100">
+                            <p className="font-bold text-purple-900">
                               인지 기능이란?
                             </p>
                             <span className="text-purple-400 group-open/cognitive:rotate-180 transition-transform ml-2">
                               ▼
                             </span>
                           </div>
-                          <p className="text-sm text-purple-700 dark:text-purple-300 mt-1 leading-relaxed">
+                          <p className="text-sm text-purple-700 mt-1 leading-relaxed">
                             MBTI를 더 깊이 이해하기 위한 참고 설명이에요.
                             연애/관계에서 자주 나타나는 생각과 감정 패턴을 이해하는 데 도움을 줘요.
                           </p>
@@ -524,7 +524,7 @@ function getCategoryExamples(category: string) {
                     <div className="p-5 pt-0 space-y-5">
                       {/* 카테고리 선택 버튼 */}
                       <div>
-                        <h4 className="font-bold text-purple-900 dark:text-purple-100 mb-3 text-center">
+                        <h4 className="font-bold text-purple-900 mb-3 text-center">
                           👇 궁금한 타입을 눌러보세요
                         </h4>
                         
@@ -540,8 +540,8 @@ function getCategoryExamples(category: string) {
                               onClick={() => setSelectedCategory(cat.key)}
                               className={`p-3 rounded-lg border-2 transition-all ${
                                 selectedCategory === cat.key
-                                  ? "bg-purple-100 dark:bg-purple-900/30 border-purple-400 dark:border-purple-600"
-                                  : "bg-white dark:bg-neutral-900 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-neutral-800"
+                                  ? "bg-purple-100 border-purple-400"
+                                  : "bg-white  border-gray-200 hover:bg-gray-50"
                               }`}
                             >
                               <div className="text-center">
@@ -549,16 +549,16 @@ function getCategoryExamples(category: string) {
                                   <span className="text-xl">{cat.icon}</span>
                                   <p className={`text-base font-bold ${
                                     selectedCategory === cat.key
-                                      ? "text-purple-700 dark:text-purple-300"
-                                      : "text-gray-700 dark:text-gray-300"
+                                      ? "text-purple-700"
+                                      : "text-gray-700"
                                   }`}>
                                     {cat.label}
                                   </p>
                                 </div>
                                 <p className={`text-xs ${
                                   selectedCategory === cat.key
-                                    ? "text-purple-600 dark:text-purple-400"
-                                    : "text-gray-500 dark:text-gray-400"
+                                    ? "text-purple-600"
+                                    : "text-gray-500"
                                 }`}>
                                   {cat.hint}
                                 </p>
@@ -570,14 +570,14 @@ function getCategoryExamples(category: string) {
 
                       {/* 같은 상황, 다른 반응 */}
                       {selectedCategory && (
-                        <div className="bg-white dark:bg-neutral-900 rounded-xl p-5 border border-purple-200 dark:border-purple-800/30">
+                        <div className="bg-white  rounded-xl p-5 border border-purple-200 ">
                           <div className="flex items-center gap-2 mb-4">
                             <span className="text-2xl">💬</span>
                             <div>
-                              <h4 className="font-bold text-purple-900 dark:text-purple-100">
+                              <h4 className="font-bold text-purple-900">
                                 같은 상황, 다른 반응
                               </h4>
-                              <p className="text-sm text-purple-600 dark:text-purple-400">
+                              <p className="text-sm text-purple-600">
                                 "친구가 이별했어" 상황에서 각 기능별 반응
                               </p>
                             </div>
@@ -592,7 +592,7 @@ function getCategoryExamples(category: string) {
                                 <div className="flex items-start justify-between gap-3 mb-2">
                                   <div className="flex items-center gap-2">
                                     <span className="text-lg">{example.icon}</span>
-                                    <span className="font-bold text-gray-900 dark:text-gray-100">
+                                    <span className="font-bold text-gray-900 ">
                                       {example.key}
                                     </span>
                                   </div>
@@ -600,10 +600,10 @@ function getCategoryExamples(category: string) {
                                     {example.type}
                                   </span>
                                 </div>
-                                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2 italic">
+                                <p className="text-sm text-gray-700 mb-2 italic">
                                   "{example.reaction}"
                                 </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
+                                <p className="text-xs text-gray-600">
                                   {example.explanation}
                                 </p>
                               </div>
@@ -612,7 +612,7 @@ function getCategoryExamples(category: string) {
                         </div>
                       )}
 
-                      <p className="text-xs text-purple-600/80 dark:text-purple-400/80 italic text-center">
+                      <p className="text-xs text-purple-600/80 italic text-center">
                         ※ 정답이나 성격을 규정하는 설명이 아니라, 나를 이해하기 위한 하나의 관점이에요.
                       </p>
                     </div>
