@@ -25,7 +25,7 @@ return (
     <div className={`flex w-full mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300 ${isUser ? "justify-end" : "justify-start"}`}>
       <div className={`flex gap-3 max-w-[85%] ${isUser ? "flex-row-reverse" : "flex-row"}`}>
         {/* 프로필 아이콘 */}
-        <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold ${isUser ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600"}`}>
+        <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold ${isUser ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-pink-200"}`}>
           {isUser ? "나" : "AI"}
         </div>
         
@@ -63,8 +63,8 @@ return (
                       rel="noopener noreferrer"
                       className={`flex items-center gap-3 p-3 rounded-xl border transition-all hover:shadow-md min-w-[220px] max-w-[300px]
                         ${isUser 
-                          ? "bg-blue-700/50 border-blue-400 text-white hover:bg-blue-700/70" 
-                          : "bg-gray-50 border-gray-200 text-gray-800 hover:bg-gray-100"
+                          ? "bg-blue-600 border-blue-500 text-white hover:bg-blue-700" 
+                          : "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-pink-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                         }`}
                     >
                       <div className={`p-2 rounded-lg ${isUser ? "bg-blue-500" : "bg-white border border-gray-200"}`}>
@@ -72,7 +72,7 @@ return (
                       </div>
                       <div className="flex flex-col overflow-hidden text-left">
                         <span className="text-sm font-medium truncate">{fileName}</span>
-                        <span className={`text-[10px] ${isUser ? "text-blue-100" : "text-gray-400"}`}>
+                        <span className={`text-[10px] ${isUser ? "text-blue-100" : "text-gray-400 dark:text-pink-300"}`}>
                           클릭하여 파일 열기
                         </span>
                       </div>
@@ -95,26 +95,26 @@ return (
             className={`px-4 py-2.5 rounded-2xl text-[15px] leading-relaxed shadow-sm whitespace-pre-wrap
                 ${isUser
                 ? "bg-blue-600 text-white rounded-tr-none"
-                : "bg-white border border-gray-200 text-gray-800 rounded-tl-none"
+                : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-pink-200 rounded-tl-none shadow-md"
                 }`}
             >
             {content}
             </div>
         )}
           {!isUser && content && message_id && onFeedback && (
-            <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-100">
-              <button onClick={() => onFeedback(message_id, "LIKE")} className="p-1 hover:bg-gray-100 rounded transition-colors group">
+            <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
+              <button onClick={() => onFeedback(message_id, "LIKE")} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors group">
                 {user_feedback === "LIKE" ? (
-                  <HandThumbUpSolid className="w-3.5 h-3.5 text-blue-500" />
+                  <HandThumbUpSolid className="w-3.5 h-3.5 text-purple-600 dark:text-pink-400" />
                 ) : (
-                  <HandThumbUpIcon className="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-500" />
+                  <HandThumbUpIcon className="w-3.5 h-3.5 text-gray-400 dark:text-pink-400 group-hover:text-purple-600 dark:group-hover:text-pink-400" />
                 )}              
                 </button>
-                <button onClick={() => onFeedback(message_id, "DISLIKE")} className="p-1 hover:bg-gray-100 rounded transition-colors group">
+                <button onClick={() => onFeedback(message_id, "DISLIKE")} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors group">
                 {user_feedback === "DISLIKE" ? (
-                  <HandThumbDownSolid className="w-3.5 h-3.5 text-blue-500" />
+                  <HandThumbDownSolid className="w-3.5 h-3.5 text-purple-600 dark:text-pink-400" />
                 ) : (
-                  <HandThumbDownIcon className="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-500" />
+                  <HandThumbDownIcon className="w-3.5 h-3.5 text-gray-400 dark:text-pink-400 group-hover:text-purple-600 dark:group-hover:text-pink-400" />
                 )}
               </button>
             </div>

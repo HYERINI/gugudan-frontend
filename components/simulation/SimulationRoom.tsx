@@ -210,47 +210,49 @@ export default function SimulationRoom({ initialChatId, onNewChatStarted }: Chat
 
   if (!isStarted) {
     return (
-      <div className="flex-1 overflow-y-auto p-6 flex flex-col items-center bg-white dark:bg-neutral-950">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 flex flex-col items-center bg-gradient-to-b from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-md w-full space-y-8 mt-6">
-          <h1 className="text-xl font-bold flex items-center gap-2"><Sparkles className="text-purple-600" /> 시뮬레이션 설정</h1>
-          <section className="space-y-6 bg-gray-50 dark:bg-white/5 p-6 rounded-3xl border border-gray-100 dark:border-white/10">
+          <h1 className="text-xl md:text-2xl font-bold flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <Sparkles className="text-purple-600" /> 시뮬레이션 설정
+          </h1>
+          <section className="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
             <div className="space-y-3">
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">상대 성별</label>
+              <label className="text-xs font-bold text-gray-400 dark:text-pink-300 uppercase tracking-wider">상대 성별</label>
               <div className="flex gap-2">
                 {GENDERS.map((g) => (
-                  <button key={g} onClick={() => setSelectedGender(g)} className={`flex-1 py-3 rounded-2xl border-2 transition-all font-medium ${selectedGender === g ? "border-purple-600 bg-white dark:bg-neutral-800 text-purple-600 shadow-sm" : "border-transparent text-gray-400"}`}>{g}</button>
+                  <button key={g} onClick={() => setSelectedGender(g)} className={`flex-1 py-3 rounded-2xl border-2 transition-all font-medium ${selectedGender === g ? "border-purple-600 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 text-purple-600 dark:text-pink-200 shadow-md" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-pink-200 hover:border-purple-300 dark:hover:border-purple-700"}`}>{g}</button>
                 ))}
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">상대 MBTI</label>
+              <label className="text-xs font-bold text-gray-400 dark:text-pink-300 uppercase tracking-wider">상대 MBTI</label>
               <div className="grid grid-cols-4 gap-2">
                 {MBTI_TYPES.map((m) => (
-                  <button key={m} onClick={() => setSelectedMbti(m)} className={`py-2 text-[11px] font-bold rounded-xl border transition-all ${selectedMbti === m ? "bg-purple-600 text-white border-purple-600 shadow-md scale-105" : "bg-white dark:bg-neutral-800 text-gray-500 border-gray-200 hover:border-purple-300"}`}>{m}</button>
+                  <button key={m} onClick={() => setSelectedMbti(m)} className={`py-2 text-[11px] font-bold rounded-xl border transition-all ${selectedMbti === m ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-transparent shadow-lg scale-105" : "bg-white dark:bg-gray-800 text-gray-500 dark:text-pink-200 border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700"}`}>{m}</button>
                 ))}
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">대화 상황</label>
+              <label className="text-xs font-bold text-gray-400 dark:text-pink-300 uppercase tracking-wider">대화 상황</label>
               <div className="grid gap-2">
                 {TOPICS.map((t) => (
                   <div key={t.id} className="space-y-2">
-                    <button onClick={() => setSelectedTopic(t.id)} className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all ${selectedTopic === t.id ? "border-purple-600 bg-white dark:bg-neutral-800" : "border-transparent bg-white dark:bg-neutral-900/50"}`}>
+                    <button onClick={() => setSelectedTopic(t.id)} className={`w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all shadow-sm hover:shadow-md ${selectedTopic === t.id ? "border-purple-600 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 shadow-md" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-purple-300 dark:hover:border-purple-700"}`}>
                       <div className="text-left">
-                        <p className={`font-bold text-sm ${selectedTopic === t.id ? "text-purple-600" : "text-gray-900 dark:text-white"}`}>{t.label}</p>
-                        <p className="text-[11px] text-gray-500">{t.desc}</p>
+                        <p className={`font-bold text-sm ${selectedTopic === t.id ? "bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" : "text-gray-900 dark:text-pink-200"}`}>{t.label}</p>
+                        <p className="text-[11px] text-gray-600 dark:text-pink-300">{t.desc}</p>
                       </div>
-                      {selectedTopic === t.id && <Check className="w-5 h-5 text-purple-600" />}
+                      {selectedTopic === t.id && <Check className="w-5 h-5 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent" />}
                     </button>
                     {t.id === "custom" && selectedTopic === "custom" && (
-                      <textarea value={customTopicText} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setCustomTopicText(e.target.value)} placeholder="예: 어제 싸우고 아직 화해 안 한 상태..." className="w-full p-4 rounded-xl text-sm bg-white dark:bg-neutral-900 border border-gray-200 outline-none resize-none" rows={3} />
+                      <textarea value={customTopicText} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setCustomTopicText(e.target.value)} placeholder="예: 어제 싸우고 아직 화해 안 한 상태..." className="w-full p-4 rounded-xl text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 outline-none resize-none text-gray-900 dark:text-pink-200 placeholder:text-gray-400 dark:placeholder:text-pink-400" rows={3} />
                     )}
                   </div>
                 ))}
               </div>
             </div>
           </section>
-          <button onClick={handleStartChat} disabled={isLoading || !selectedMbti} className="w-full bg-purple-600 text-white font-bold py-4 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2">
+          <button onClick={handleStartChat} disabled={isLoading || !selectedMbti} className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:shadow-xl hover:from-purple-700 hover:to-pink-700 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
             {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Sparkles className="w-5 h-5" /> 가상 대화 시작하기</>}
           </button>
         </div>
@@ -259,22 +261,22 @@ export default function SimulationRoom({ initialChatId, onNewChatStarted }: Chat
   }
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-neutral-950">
-      <header className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+    <div className="flex flex-col h-full bg-gradient-to-b from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-950">
+      <header className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border-b border-purple-100 dark:border-gray-700 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-white font-black">{selectedMbti?.[0] || "?"}</div>
           <div>
-            <h2 className="font-bold text-sm">{selectedMbti} ({selectedGender})</h2>
-            <p className="text-[11px] text-gray-500">{selectedTopic === "custom" ? "커스텀 상황" : TOPICS.find(t => t.id === selectedTopic)?.label}</p>
+            <h2 className="font-bold text-sm text-gray-900 dark:text-pink-200">{selectedMbti} ({selectedGender})</h2>
+            <p className="text-[11px] text-gray-500 dark:text-pink-300">{selectedTopic === "custom" ? "커스텀 상황" : TOPICS.find(t => t.id === selectedTopic)?.label}</p>
           </div>
         </div>
-        <ShieldCheck className="w-5 h-5 text-purple-500 opacity-50" />
+        <ShieldCheck className="w-5 h-5 text-purple-500 dark:text-pink-400 opacity-50" />
       </header>
 
       <main ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-8 space-y-6">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-            <div className={`max-w-[85%] rounded-3xl px-5 py-3 shadow-sm ${msg.role === "user" ? "bg-purple-600 text-white rounded-tr-none" : "bg-gray-100 dark:bg-neutral-800 text-gray-900 dark:text-gray-100 rounded-tl-none border border-gray-200/50"}`}>
+            <div className={`max-w-[85%] rounded-3xl px-5 py-3 shadow-md ${msg.role === "user" ? "bg-blue-600 text-white rounded-tr-none" : "bg-white dark:bg-gray-800 text-gray-900 dark:text-pink-200 rounded-tl-none border border-gray-200 dark:border-gray-700 shadow-lg"}`}>
               <p className="text-[14px] leading-relaxed whitespace-pre-wrap">{msg.content || (msg.role === 'assistant' && isLoading && "...")}</p>
               <span className="text-[10px] mt-1.5 block opacity-60 text-right">{msg.time}</span>
             </div>
@@ -282,10 +284,10 @@ export default function SimulationRoom({ initialChatId, onNewChatStarted }: Chat
         ))}
       </main>
 
-      <footer className="p-4 md:p-6 border-t border-gray-100 dark:border-white/5">
+      <footer className="p-4 md:p-6 border-t border-purple-100 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm">
         <form className="max-w-4xl mx-auto flex gap-2 items-end" onSubmit={handleSendMessage}>
-          <textarea rows={1} value={input} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="메시지 입력..." className="flex-1 p-4 bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-3xl outline-none text-sm resize-none focus:ring-2 focus:ring-purple-500" />
-          <button type="submit" className="p-4 bg-purple-600 text-white rounded-2xl disabled:opacity-30 transition-all shadow-lg shadow-purple-500/20" disabled={!input.trim() || isLoading}><Send className="w-5 h-5" /></button>
+          <textarea rows={1} value={input} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="메시지 입력..." className="flex-1 p-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl outline-none text-sm resize-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-pink-500 text-gray-900 dark:text-pink-200 placeholder:text-gray-400 dark:placeholder:text-pink-400" />
+          <button type="submit" className="p-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl hover:from-purple-700 hover:to-pink-700 disabled:opacity-30 transition-all shadow-lg hover:shadow-xl" disabled={!input.trim() || isLoading}><Send className="w-5 h-5" /></button>
         </form>
       </footer>
     </div>

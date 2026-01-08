@@ -73,16 +73,18 @@ export function ChatRoomList({ selectedRoomId, onSelect }: Props) {
   }, [rooms, searchQuery]);
 
   return (
-    <aside className="w-72 border-r bg-[#f9f9f9] flex flex-col h-full shadow-sm relative">
-      <div className="p-3 space-y-3 bg-white border-b">
+    <aside className="w-72 border-r bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm flex flex-col h-full shadow-lg relative">
+      <div className="p-3 space-y-3 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-purple-100 dark:border-gray-700">
         <button
           onClick={() => onSelect(null)}
           className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
-            selectedRoomId === null ? "bg-gray-100 border-gray-300 shadow-sm" : "bg-white border-gray-200 hover:bg-gray-50 text-gray-700"
+            selectedRoomId === null 
+              ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-transparent shadow-lg" 
+              : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
           }`}
         >
-          <PlusIcon className="w-5 h-5 text-gray-600" />
-          <span className="font-semibold text-gray-900">새 채팅</span>
+          <PlusIcon className="w-5 h-5" />
+          <span className="font-semibold">새 채팅</span>
         </button>
 
         <div className="relative">
@@ -92,18 +94,18 @@ export function ChatRoomList({ selectedRoomId, onSelect }: Props) {
             placeholder="채팅 검색..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-900"
+            className="w-full pl-9 pr-3 py-2 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 text-gray-900 dark:text-pink-200"
           />
         </div>
       </div>
 
       <div className="flex-1 overflow-y-auto custom-scrollbar">
         <div className="px-2 py-4">
-          <h3 className="px-3 text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">최근 대화</h3>
+          <h3 className="px-3 text-xs font-bold text-gray-500 dark:text-pink-300 uppercase tracking-wider mb-2">최근 대화</h3>
           {loading && rooms.length === 0 ? (
-            <div className="p-4 text-sm text-gray-400 animate-pulse">불러오는 중...</div>
+            <div className="p-4 text-sm text-gray-400 dark:text-pink-300 animate-pulse">불러오는 중...</div>
           ) : filteredRooms.length === 0 ? (
-            <div className="p-4 text-sm text-gray-400 text-center leading-relaxed">
+            <div className="p-4 text-sm text-gray-400 dark:text-pink-300 text-center leading-relaxed">
               {searchQuery ? "검색 결과가 없습니다." : "대화 기록이 없습니다."}
             </div>
           ) : (
@@ -113,7 +115,9 @@ export function ChatRoomList({ selectedRoomId, onSelect }: Props) {
                   <button
                     onClick={() => onSelect(room.room_id)}
                     className={`w-full text-left px-3 py-3 rounded-lg transition-all truncate pr-10 ${
-                      selectedRoomId === room.room_id ? "bg-gray-200 text-gray-900 font-bold" : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      selectedRoomId === room.room_id 
+                        ? "bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 text-purple-700 dark:text-pink-200 font-bold border border-purple-200 dark:border-purple-700" 
+                        : "text-gray-700 dark:text-pink-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-pink-100"
                     }`}
                   >
                     <span className="block truncate">{room.title || "새 대화"}</span>
