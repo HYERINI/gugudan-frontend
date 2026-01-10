@@ -6,7 +6,7 @@ import {Feedback} from "./Feedback";
 import {SurveyModal} from "../modal/Surveymodal";
 import SurveyTestButton from "@/components/home/SurveyTestButton";
 import { SurveyContent, fallbackSurveyContent } from "../modal/_content/survey";
-
+import {SummaryModal} from "./SummaryModal";
 import {
     ArrowsRightLeftIcon,
     ChatBubbleLeftEllipsisIcon,
@@ -17,7 +17,8 @@ import {
     StopIcon,
     XMarkIcon,
     PaperClipIcon,
-    DocumentIcon
+    DocumentIcon,
+    DocumentTextIcon
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
@@ -60,6 +61,8 @@ export function ChatRoomView({ roomId, onRoomCreated }: Props) {
   // 설문조사 상태
   const [isSurveyOpen, setIsSurveyOpen] = useState(false);
   const [surveyContent, setSurveyContent] = useState<SurveyContent | null>(null);
+  // 요약 모달 상태
+  const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
 
   const MAX_FILES = 4;
   const [selectedFiles, setSelectedFiles] = useState<FileItem[]>([]);
@@ -470,6 +473,15 @@ const handleSendMessage = async (textToSend?: string) => {
         </div>
         <div className="flex items-center gap-2">
           <button
+            onClick={() => setIsSummaryModalOpen(true)}
+            disabled={!roomId || messages.length === 0}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
+            title="대화 요약"
+          >
+            <DocumentTextIcon className="w-4 h-4" />
+            요약
+          </button>
+          <button
             onClick={endConsultation}
             disabled={!roomId || loading || roomStatus === "ENDED"}
             className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-pink-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:text-gray-400 dark:disabled:text-pink-400 transition-colors"
@@ -659,9 +671,15 @@ const handleSendMessage = async (textToSend?: string) => {
             }
           }}
         />
-        {/* 로컬 테스트 용 */}
-        {/* <SurveyTestButton/> */}
+      {/* 로컬 테스트 용 */}
+      {/* <SurveyTestButton/> */}
+
+      <SummaryModal
+        isOpen={isSummaryModalOpen}
+        roomId={roomId}
+        onClose={() => setIsSummaryModalOpen(false)}
+      />
     </div>
-    
+
   );
 }
